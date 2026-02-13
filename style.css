@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fff;
+  color: #222;
+  padding: 10px;
+}
+
+h1 { 
+  margin-bottom: 10px; 
+  color: #f5c700;
+  text-shadow: 1px 1px 2px #aaa;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #f5c700;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s;
+}
+
+button:hover { transform: scale(1.05); }
+
+.pack-btn { 
+  background: #f5c700; 
+  color: #222; 
+  border: 2px solid #222;
+}
+
+.pack-btn:hover { background: #ffd633; }
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+  background: #fff8cc;
+  border: 2px solid #f5c700;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+#inventory { 
+  list-style: none; 
+  padding: 0; 
+  margin-top: 10px; 
+}
+
+#inventory li { 
+  margin: 5px 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  background: #fff9e0;
+  border: 1px solid #f5c700;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.character { font-weight: bold; margin-right: 5px; }
+
+/* Rarity Colors */
+.common { color: #555; }
+.rare { color: #1e90ff; }
+.epic { color: #a64ca6; }
+.legendary { color: #f5c700; }
+.mythic { color: #ff8c00; }
+.titanic { color: #ff0000; }
+
+/* Trait text */
+.trait {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 2px;
+}
+.trait-Gold { color: #f5c700; }
+.trait-Diamond { color: #1e90ff; }
+.trait-Rainbow { background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;}
+.trait-Crimson { color: crimson; }
+.trait-Toxic { color: limegreen; }
+
+.earnings { font-size: 12px; margin-left: 5px; color: #222; font-weight: bold; }
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0% {opacity:0;}
+  50% {opacity:1; transform: scale(1.2) rotate(20deg);}
+  100% {opacity:0;}
+}
+
+.sparkle {
+  display:inline-block;
+  color: gold;
+  font-size: 24px;
+  animation: sparkle 0.8s ease-in-out;
+  margin-left: 5px;
+}
