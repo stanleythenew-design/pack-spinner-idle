@@ -1,0 +1,12 @@
+const today = new Date();
+const isValentines = today.getMonth() === 1; // February
+
+if(isValentines){
+  document.body.classList.add('valentines-mode');
+}
+
+const valentinesItems = [
+  {name: '💘 Cupid', rarity: 'Legendary'},
+  {name: '🌹 Rose Spirit', rarity: 'Epic'},
+  {name: '🍫 Chocolate Golem', rarity: 'Rare'}
+];

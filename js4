@@ -1,0 +1,8 @@
+const shopItems = ['2x Coins 60s','Free Legendary Spin','Luck Boost +20%','Gem Bonus +5'];
+
+function showShop(){
+  const item = shopItems[new Date().getDate()%shopItems.length];
+  document.getElementById('shop').innerHTML = `<h2>🛒 Daily Shop</h2><p>${item}</p>`;
+}
+
+showShop();

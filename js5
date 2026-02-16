@@ -1,0 +1,16 @@
+const fakeGlobal = [
+  {name:'ShadowX',score:9999},
+  {name:'NovaKing',score:8765},
+  {name:'Crimson',score:7543},
+  {name:playerProfile.name,score:playerProfile.rebirths}
+];
+
+function showLeaderboard(){
+  let html = '<h2>🏆 Leaderboard</h2>';
+  fakeGlobal.forEach((p,i)=>{
+    html += `<p>#${i+1} ${p.name} - ${p.score}</p>`;
+  });
+  document.getElementById('leaderboard').innerHTML = html;
+}
+
+showLeaderboard();

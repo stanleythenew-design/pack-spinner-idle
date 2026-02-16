@@ -1,0 +1,21 @@
+let playerProfile = JSON.parse(localStorage.getItem('profile')) || {
+  name: 'Player',
+  coins: 0,
+  gems: 0,
+  luckLevel: 0,
+  rebirths: 0,
+  level: 1,
+  wins: 0,
+  icon: '🙂'
+};
+
+function saveProfile() {
+  localStorage.setItem('profile', JSON.stringify(playerProfile));
+}
+
+function renderProfile() {
+  document.getElementById('profile').innerHTML =
+    `Name: ${playerProfile.icon} ${playerProfile.name} | Level: ${playerProfile.level} | Coins: ${playerProfile.coins} | Gems: ${playerProfile.gems} | Luck: ${playerProfile.luckLevel} | Rebirths: ${playerProfile.rebirths}`;
+}
+
+renderProfile();

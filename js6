@@ -1,0 +1,4 @@
+function checkAchievements(){
+  if(playerProfile.coins >= 1000) alert('Achievement: Coin Collector!');
+  if(playerProfile.rebirths>=5) alert('Achievement: Rebirth Master!');
+}

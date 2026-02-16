@@ -1,0 +1,46 @@
+let pityCounter = parseInt(localStorage.getItem('pityCounter')) || 0;
+
+const packItems = [
+  {name:'🙂 Common',rarity:'Common',emoji:'🙂',chance:60},
+  {name:'😎 Rare',rarity:'Rare',emoji:'😎',chance:20},
+  {name:'🦄 Epic',rarity:'Epic',emoji:'🦄',chance:12},
+  {name:'🐉💥 Legendary',rarity:'Legendary',emoji:'🐉💥',chance:6},
+  {name:'👑✨ Mythic',rarity:'Mythic',emoji:'👑✨',chance:2},
+  {name:'💀🔥 Titanic',rarity:'Titanic',emoji:'💀🔥',chance:0.5}
+];
+
+function getLuckMultiplier(){
+  return 1 + (playerProfile.luckLevel*0.05);
+}
+
+function openPack(type){
+  let totalChance = packItems.reduce((sum,i)=>sum+i.chance*getLuckMultiplier(),0);
+  let r = Math.random()*totalChance;
+  let cumulative = 0;
+  let reward;
+
+  for(let item of packItems){
+    cumulative += item.chance*getLuckMultiplier();
+    if(r <= cumulative){
+      reward = item;
+      break;
+    }
+  }
+
+  // Pity system
+  pityCounter++;
+  if(pityCounter>=15 && reward.rarity!=='Legendary' && reward.rarity!=='Mythic' && reward.rarity!=='Titanic'){
+    reward = packItems.find(i=>['Legendary','Mythic','Titanic'].includes(i.rarity));
+    pityCounter=0;
+  }
+  localStorage.setItem('pityCounter',pityCounter);
+
+  // Give rewards
+  playerProfile.coins += 10*Math.round(getLuckMultiplier());
+  if(['Legendary','Mythic','Titanic'].includes(reward.rarity)) playerProfile.gems += 1;
+
+  localStorage.setItem('profile',JSON.stringify(playerProfile));
+  renderProfile();
+
+  document.getElementById('result').innerHTML = `<div class='card'><div class='card-inner'><div class='card-front'>🎴</div><div class='card-back'>${reward.emoji} ${reward.name} (${reward.rarity})</div></div></div>`;
+}

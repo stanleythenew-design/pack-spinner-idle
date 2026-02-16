@@ -1,0 +1,15 @@
+const modes = ['Classic','Hardcore','Endless','Valentine Special'];
+
+function renderModes(){
+  let html = '<h2>Select Mode</h2>';
+  modes.forEach(m=>{
+    html += `<button onclick="startMode('${m}')">${m}</button>`;
+  });
+  document.getElementById('modeSelect').innerHTML = html;
+}
+
+function startMode(mode){
+  alert('Starting '+mode+' Mode!');
+}
+
+renderModes();
